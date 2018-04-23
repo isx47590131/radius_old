@@ -45,7 +45,7 @@ Ara cal comprovar que tenim els ports que toquen disponibles per ser utilitzats.
 En el meu cas ja tinc el *Firewall* desactivat:
 
 ```
-iptables -L -n
+sudo iptables -L -n
 
 Chain INPUT (policy ACCEPT)
 Chain FORWARD (policy ACCEPT)
@@ -62,16 +62,57 @@ $ sudo systemc start|stop|restart|enable|disable radiusd
 Per comprovar que està en funcionament:
 
 ```
-$ pidof radiusd 
+$ pidof radiusd
+3801
 
-o
 
 $ ps -ax | grep radiusd
+ 3801 ?        Ssl    0:00 /usr/sbin/radiusd -d /etc/raddb
 
-o
 
 $ systemctl status radiusd
+● radiusd.service - FreeRADIUS high performance RADIUS server.
+   Loaded: loaded (/usr/lib/systemd/system/radiusd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Mon 2018-04-23 10:04:06 CEST; 2min 39s ago
+  Process: 3798 ExecStart=/usr/sbin/radiusd -d /etc/raddb (code=exited, status=0/SUCCESS)
+  Process: 3791 ExecStartPre=/usr/sbin/radiusd -C (code=exited, status=0/SUCCESS)
+  Process: 3783 ExecStartPre=/bin/chown -R radiusd.radiusd /var/run/radiusd (code=exited, status=0/SUCCESS)
+ Main PID: 3801 (radiusd)
 ```
+
+i comprovar els ports:
+```
+$ sudo netstat -putan | grep radiusd
+udp        0      0 127.0.0.1:18120         0.0.0.0:*                           3801/radiusd        
+udp        0      0 0.0.0.0:1812            0.0.0.0:*                           3801/radiusd        
+udp        0      0 0.0.0.0:1813            0.0.0.0:*                           3801/radiusd        
+udp        0      0 0.0.0.0:34658           0.0.0.0:*                           3801/radiusd        
+udp6       0      0 :::34440                :::*                                3801/radiusd        
+udp6       0      0 :::1812                 :::*                                3801/radiusd        
+udp6       0      0 :::1813                 :::*                                3801/radiusd  
+```
+
+
+* Una configuració inicial molt bàsica per saber si esta tot correcte.
+  
+  Mirem que el fitcher `/etc/raddb/clients.conf` que ha de tenir aquesta configuracó per defecte:
+  
+  ```
+  client localhost {
+     ipaddr = 127.0.0.1
+     secret = testing123
+     require_message_authenticator = no
+     nastype = other
+   }
+  ```
+  
+  Creem un usuari per pràcticar i l'afegim al principi del fitcher `/etc/raddb/users`: 
+  
+  ```
+  pere Cleartext-Password := "kpere"
+     Framed-IP-Address = 10.0.0.1,
+     Reply-Message = "Bienvenid@, %{User-Name}"
+  ```
 
 
 
