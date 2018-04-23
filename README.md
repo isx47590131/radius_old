@@ -27,11 +27,26 @@ i l'instal·lem juntament amb el pequet utils:
 $ sudo dnf -y install freeradius freeradius-utils
 ```
 
-Ara cal comprovar que tenim els ports que toquen disponibles per ser utilitzats. Tenim dos opcions, una que és desactivar el *Firewall* i l'altre que és permetre els ports 1812, 1813, 1645 i 1646([suport de cisco on explica els ports](https://supportforums.cisco.com/t5/wan-routing-and-switching/which-port-numbers-are-used-for-radius-accounting-and-radius/td-p/2494536 "Suport Cisco"))
+
+
+Podem veure que s'ha creat un usuari i un grup al fer-ho:
+
+```
+$ grep radius /etc/passwd
+radiusd:x:95:95:radiusd user:/var/lib/radiusd:/sbin/nologin
+
+$ grep radius /etc/group
+radiusd:x:95:
+```
+
+
+
+Ara cal comprovar que tenim els ports que toquen disponibles per ser utilitzats. Tenim dos opcions, una que és desactivar el *Firewall* i l'altre que és permetre els ports 1812, 1813, 1645 i 1646 ([suport de cisco on explica els ports](https://supportforums.cisco.com/t5/wan-routing-and-switching/which-port-numbers-are-used-for-radius-accounting-and-radius/td-p/2494536 "Suport Cisco"))
 En el meu cas ja tinc el *Firewall* desactivat:
 
 ```
 iptables -L -n
+
 Chain INPUT (policy ACCEPT)
 Chain FORWARD (policy ACCEPT)
 Chain OUTPUT (policy ACCEPT)
