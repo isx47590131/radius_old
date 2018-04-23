@@ -11,7 +11,7 @@
 
 # Guia
 
-## 1.
+## 1. Instal·lació
 Per començar a instal·lar freeradius mirem quins paquets tenim disponibles (en el meu cas en fedora24 `dnf`):
 
 ```
@@ -26,3 +26,17 @@ i l'instal·lem juntament amb el pequet utils:
 ```
 $ sudo dnf -y install freeradius freeradius-utils
 ```
+
+Ara cal comprovar que tenim els ports que toquen disponibles per ser utilitzats. Tenim dos opcions, una que és desactivar el *Firewall* i l'altre que és permetre els ports 1812, 1813, 1645 i 1646([suport de cisco on explica els ports]("https://supportforums.cisco.com/t5/wan-routing-and-switching/which-port-numbers-are-used-for-radius-accounting-and-radius/td-p/2494536"))
+En el meu cas ja tinc el *Firewall* desactivat:
+
+```
+iptables -L -n
+Chain INPUT (policy ACCEPT)
+Chain FORWARD (policy ACCEPT)
+Chain OUTPUT (policy ACCEPT)
+```
+
+
+
+## 2. Configuració
