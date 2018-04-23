@@ -93,7 +93,7 @@ udp6       0      0 :::1813                 :::*                                
 ```
 
 
-* Una configuració inicial molt bàsica per saber si esta tot correcte.
+* Creem una configuració inicial molt bàsica per saber si esta tot correcte.
   
   Mirem que el fitcher `/etc/raddb/clients.conf` que ha de tenir aquesta configuracó per defecte:
   
@@ -106,14 +106,23 @@ udp6       0      0 :::1813                 :::*                                
    }
   ```
   
-  Creem un usuari per pràcticar i l'afegim al principi del fitcher `/etc/raddb/users`: 
+  Ens inventem un usuari per pràcticar i l'afegim al principi del fitcher `/etc/raddb/users`: 
   
   ```
   pere Cleartext-Password := "kpere"
      Framed-IP-Address = 10.0.0.1,
      Reply-Message = "Bienvenid@, %{User-Name}"
   ```
-
+  
+  Parem el *radius* i l'encenem en mode *debug*
+  
+  ```
+  $ sudo systemctl stop radiusd.service
+  
+  $ sudo radiusd -X
+  
+  ```
+  
 
 
 ## 2. Configuració
