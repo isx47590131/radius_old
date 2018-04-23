@@ -52,7 +52,27 @@ Chain FORWARD (policy ACCEPT)
 Chain OUTPUT (policy ACCEPT)
 ```
 
-A continuació per executar *Freeradius*
+
+A continuació per executar *Freeradius* es recomana fer-ho en mode *debug*, el qual s'indica amb `-X`, per així saber els problemes que puguin succeir. Per encedre, apagar, reiniciar, etc. (en el cas de fedora, *systemd*) és fa amb:
+
+``` 
+$ sudo systemc start|stop|restart|enable|disable radiusd
+```
+
+Per comprovar que està en funcionament:
+
+```
+$ pidof radiusd 
+
+o
+
+$ ps -ax | grep radiusd
+
+o
+
+$ systemctl status radiusd
+```
+
 
 
 ## 2. Configuració
