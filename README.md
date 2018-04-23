@@ -12,7 +12,7 @@
 # Guia
 
 ## 1. Instal·lació
-Per començar a instal·lar freeradius mirem quins paquets tenim disponibles (en el meu cas en fedora24 `dnf`):
+Per començar a instal·lar *Freeradius* hem de mirar quins paquets tenim disponibles en la nostre distribució (en el meu cas fedora24 `dnf`):
 
 ```
 $ sudo dnf list all freeradius
@@ -52,6 +52,7 @@ Chain FORWARD (policy ACCEPT)
 Chain OUTPUT (policy ACCEPT)
 ```
 
+A continuació per executar *Freeradius*
 
 
 ## 2. Configuració
