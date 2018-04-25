@@ -93,7 +93,7 @@ udp6       0      0 :::1813                 :::*                                
 ```
 
 
-* Creem una configuració inicial molt bàsica per saber si esta tot correcte.
+### 1.1 Creem una configuració inicial molt bàsica per saber si esta tot correcte.
   
   Mirem que el fitcher `/etc/raddb/clients.conf` que ha de tenir aquesta configuracó per defecte:
   
@@ -122,25 +122,22 @@ udp6       0      0 :::1813                 :::*                                
   $ sudo radiusd -X
   
   ```
-  Ara fem login per provar si podem fer loogin:
-
-``
-radtest pere kpere 127.0.0.1 100 testing123
-Sent Access-Request Id 52 from 0.0.0.0:45916 to 127.0.0.1:1812 length 74
+  Ara fem login per provar si podem fer *login* com a client, però des de la mateixa màquina:
+  ```
+  $ radtest pere kpere 127.0.0.1 100 testing123
+	Sent Access-Request Id 52 from 0.0.0.0:45916 to 127.0.0.1:1812 length 74
 	User-Name = "pere"
 	User-Password = "kpere"
 	NAS-IP-Address = 172.17.0.2
 	NAS-Port = 100
 	Message-Authenticator = 0x00
 	Cleartext-Password = "kpere"
-Received Access-Accept Id 52 from 127.0.0.1:1812 to 0.0.0.0:0 length 44
+	Received Access-Accept Id 52 from 127.0.0.1:1812 to 0.0.0.0:0 length 44
 	Framed-IP-Address = 10.0.0.1
 	Reply-Message = "Bienvenid@, pere"
-
- ```
-
-
-
+   ```
+   
+  Com hem vist ens ha fet ens ha connectat perfectament com a pere
 
 
 
