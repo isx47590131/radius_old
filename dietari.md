@@ -9,3 +9,5 @@ Buscar informació sobre [Radius](https://freeradius.org/documentation/ "Radius"
 
 ### Dia 1 (23/04/2018)
 Buscar la informació sobre la instal·lació de freeradius en fedora24 i compatibilitat amb ldap i/o dockers. 
+
+### Dia 2 (25/04/2018)
