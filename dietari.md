@@ -16,3 +16,7 @@ Instal·lació de radius a un pc, provar l'acces desde el mateix ordinador i des
 Instal·lació de radius a un docker, provar l'acces desde el Docker i desde el pc host amb una configuració bàsica. (Ok)
 
 He arribat a la conclusó de que es necesita un router de proves per continuar, també és provable que calgui instal·lar un fedora posterior, perque la versió actual (Fedora:24) no es compatible radius-ldap.
+
+### Dia 3 (26/04/2018)
+Configuració de router bàsica per sortir a internet (OK)
+Configuració del router amb radius (no ok)
