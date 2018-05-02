@@ -20,3 +20,6 @@ He arribat a la conclusó de que es necesita un router de proves per continuar, 
 ### Dia 3 (26/04/2018)
 Configuració de router bàsica per sortir a internet (OK)
 Configuració del router amb radius (no ok)
+
+### Dia 4 (27/04/2018)
+Continuar amb la configuració i connexió de mikrotik amb radius (no ok)
