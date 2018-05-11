@@ -12,12 +12,11 @@ RUN mkdir /opt/docker
 RUN rm /var/run/nologin
 COPY  * /opt/docker/
 RUN chmod +x /opt/docker/startup.sh /opt/docker/get_ip.sh
-RUN /opt/docker/get_ip.sh
-RUN yes | cp -f /opt/docker/clients.conf /etc/raddb/
+COPY clients.conf /etc/raddb/
 COPY default /etc/raddb/sites-enabled/
 COPY ldap /etc/raddb/mods-aviable/
 RUN ln -s /opt/docker/ldap /etc/raddb/mods-enabled/
 WORKDIR /opt/docker 
 #CMD ["/usr/sbin/radiusd", "-d", "/etc/raddb"]
-CMD ["/bin/bash"]
+CMD ["/opt/docker/startup.sh"]
 
