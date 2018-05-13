@@ -35,6 +35,16 @@ No valida usuaris des de ldap.
 ### Dia 7 (04/05/2018)
 Realitzada la validació d'usuaris des del servidor docker ldap, amb l'inconvenient que s'han de guardar les passwords en text pla.
 
-
 ### Dia 8 (08/05/2018)
+A causa de problemes amb la memòria del Mikrotik es va perdre part de la configuració, he estat arreglant-ho
 
+### Dia 9 (09/05/2018)
+Dockeritzar els servidors (ldap i radius) (no ok)
+
+### Dia 10 (10/05/2018)
+Dockeritzar els servidors (ldap i radius) i connectar-los entre si. (ok)
+
+### Dia 11 (11/05/2018)
+Connectar els servidors Dockeritzats amb el router Mikrotik. (ok)
+
+### Dia 12 (14/05/2018)
